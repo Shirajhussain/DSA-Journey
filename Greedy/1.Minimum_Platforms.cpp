@@ -1,0 +1,30 @@
+
+class Solution {
+public:
+    int minPlatform(vector<int>& arr, vector<int>& dep) {
+
+        sort(arr.begin(), arr.end());
+        sort(dep.begin(), dep.end());
+
+        int i = 0;
+        int j = 0;
+
+        int platform = 0;
+        int ans = 0;
+
+        while (i < arr.size()) {
+
+            if (arr[i] <= dep[j]) {
+                platform++;
+                ans = max(ans, platform);
+                i++;
+            }
+            else {
+                platform--;
+                j++;
+            }
+        }
+
+        return ans;
+    }
+};
